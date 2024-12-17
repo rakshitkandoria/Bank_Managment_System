@@ -1,4 +1,4 @@
- Bank Management System
+# Bank Management System
 
 This project is a *Bank Management System* implemented in Python using *Tkinter* for the user interface and *MySQL* as the database. It allows users to perform essential banking operations such as creating accounts, logging in, checking balances, depositing money, and withdrawing money.
 
