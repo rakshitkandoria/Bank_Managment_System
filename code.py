@@ -133,102 +133,113 @@ def withdraw_money():
 # Tkinter setup
 root = tk.Tk()
 root.title("Bank Management System")
-root.geometry("400x400")
+root.geometry("500x600")
+root.config(bg="#f5f5f5")
 
 logged_in_user = None
 
 # Colorful Theme
-bg_color = "#f0f8ff"  # Light Blue
-button_color = "#87cefa"  # Sky Blue
-button_hover_color = "#4682b4"  # Steel Blue
-label_color = "#4b0082"  # Indigo
+bg_color = "#f5f5f5"  # Light Gray
+button_color = "#4caf50"  # Green
+button_hover_color = "#45a049"  # Darker Green for hover
+label_color = "#2c3e50"  # Dark Grayish Blue
+frame_border_color = "#3498db"  # Soft Blue boundary for frames
+
+# Function to create a frame with border
+def create_frame_with_border(parent, bg_color, border_color, border_width=1):
+    frame = tk.Frame(parent, bg=bg_color, bd=border_width, relief="solid", highlightbackground=border_color, highlightthickness=border_width)
+    return frame
 
 # Main Menu Frame
-main_menu_frame = tk.Frame(root, bg=bg_color)
-main_menu_frame.pack()
+main_menu_frame = create_frame_with_border(root, bg_color, frame_border_color)
+main_menu_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
-tk.Label(main_menu_frame, text="Bank Management System", font=("Arial", 16), bg=bg_color, fg=label_color).pack(pady=20)
+tk.Label(main_menu_frame, text="Bank Management System", font=("Arial", 18, "bold"), bg=bg_color, fg=label_color).pack(pady=40)
 
-tk.Button(main_menu_frame, text="New User", font=("Arial", 12), command=show_new_user, bg=button_color, activebackground=button_hover_color).pack(pady=10)
-tk.Button(main_menu_frame, text="Login User", font=("Arial", 12), command=show_login_user, bg=button_color, activebackground=button_hover_color).pack(pady=10)
-tk.Button(main_menu_frame, text="Exit", font=("Arial", 12), command=root.destroy, bg=button_color, activebackground=button_hover_color).pack(pady=10)
+tk.Button(main_menu_frame, text="New User", font=("Arial", 14), command=show_new_user, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
+tk.Button(main_menu_frame, text="Login User", font=("Arial", 14), command=show_login_user, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
+tk.Button(main_menu_frame, text="Exit", font=("Arial", 14), command=root.destroy, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
 
 # New User Frame
-new_user_frame = tk.Frame(root, bg=bg_color)
+new_user_frame = create_frame_with_border(root, bg_color, frame_border_color)
+
+tk.Label(new_user_frame, text="Create New User", font=("Arial", 16, "bold"), bg=bg_color, fg=label_color).pack(pady=20)
 
 name_label = tk.Label(new_user_frame, text="Name:", bg=bg_color, fg=label_color)
-name_label.pack()
-name_entry = tk.Entry(new_user_frame)
-name_entry.pack()
+name_label.pack(pady=5)
+name_entry = tk.Entry(new_user_frame, font=("Arial", 12))
+name_entry.pack(pady=5)
 
 age_label = tk.Label(new_user_frame, text="Age:", bg=bg_color, fg=label_color)
-age_label.pack()
-age_entry = tk.Entry(new_user_frame)
-age_entry.pack()
+age_label.pack(pady=5)
+age_entry = tk.Entry(new_user_frame, font=("Arial", 12))
+age_entry.pack(pady=5)
 
 pin_label = tk.Label(new_user_frame, text="PIN:", bg=bg_color, fg=label_color)
-pin_label.pack()
-pin_entry = tk.Entry(new_user_frame, show="*")
-pin_entry.pack()
+pin_label.pack(pady=5)
+pin_entry = tk.Entry(new_user_frame, show="*", font=("Arial", 12))
+pin_entry.pack(pady=5)
 
 state_label = tk.Label(new_user_frame, text="State:", bg=bg_color, fg=label_color)
-state_label.pack()
-state_entry = tk.Entry(new_user_frame)
-state_entry.pack()
+state_label.pack(pady=5)
+state_entry = tk.Entry(new_user_frame, font=("Arial", 12))
+state_entry.pack(pady=5)
 
 gender_label = tk.Label(new_user_frame, text="Gender:", bg=bg_color, fg=label_color)
-gender_label.pack()
-gender_entry = tk.Entry(new_user_frame)
-gender_entry.pack()
+gender_label.pack(pady=5)
+gender_entry = tk.Entry(new_user_frame, font=("Arial", 12))
+gender_entry.pack(pady=5)
 
-tk.Button(new_user_frame, text="Create User", command=create_new_user, bg=button_color, activebackground=button_hover_color).pack(pady=10)
-tk.Button(new_user_frame, text="Back to Main Menu", command=show_main_menu, bg=button_color, activebackground=button_hover_color).pack(pady=10)
+tk.Button(new_user_frame, text="Create User", font=("Arial", 12), command=create_new_user, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=15)
+tk.Button(new_user_frame, text="Back to Main Menu", font=("Arial", 12), command=show_main_menu, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
 
 # Login User Frame
-login_user_frame = tk.Frame(root, bg=bg_color)
+login_user_frame = create_frame_with_border(root, bg_color, frame_border_color)
+
+tk.Label(login_user_frame, text="Login", font=("Arial", 16, "bold"), bg=bg_color, fg=label_color).pack(pady=20)
 
 login_name_label = tk.Label(login_user_frame, text="Name:", bg=bg_color, fg=label_color)
-login_name_label.pack()
-login_name_entry = tk.Entry(login_user_frame)
-login_name_entry.pack()
+login_name_label.pack(pady=5)
+login_name_entry = tk.Entry(login_user_frame, font=("Arial", 12))
+login_name_entry.pack(pady=5)
 
 login_pin_label = tk.Label(login_user_frame, text="PIN:", bg=bg_color, fg=label_color)
-login_pin_label.pack()
-login_pin_entry = tk.Entry(login_user_frame, show="*")
-login_pin_entry.pack()
+login_pin_label.pack(pady=5)
+login_pin_entry = tk.Entry(login_user_frame, show="*", font=("Arial", 12))
+login_pin_entry.pack(pady=5)
 
-tk.Button(login_user_frame, text="Login", command=login_user, bg=button_color, activebackground=button_hover_color).pack(pady=10)
-tk.Button(login_user_frame, text="Back to Main Menu", command=show_main_menu, bg=button_color, activebackground=button_hover_color).pack(pady=10)
+tk.Button(login_user_frame, text="Login", font=("Arial", 12), command=login_user, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=15)
+tk.Button(login_user_frame, text="Back to Main Menu", font=("Arial", 12), command=show_main_menu, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
 
 # Transaction Frame
-transaction_frame = tk.Frame(root, bg=bg_color)
+transaction_frame = create_frame_with_border(root, bg_color, frame_border_color)
 
-tk.Label(transaction_frame, text="Transaction Menu", font=("Arial", 16), bg=bg_color, fg=label_color).pack(pady=10)
+tk.Label(transaction_frame, text="Transaction Menu", font=("Arial", 16, "bold"), bg=bg_color, fg=label_color).pack(pady=20)
 
 balance_label = tk.Label(transaction_frame, text="", font=("Arial", 12), bg=bg_color, fg=label_color)
 balance_label.pack(pady=10)
 
-tk.Button(transaction_frame, text="Deposit", command=show_deposit, bg=button_color, activebackground=button_hover_color).pack(pady=5)
-tk.Button(transaction_frame, text="Withdraw", command=show_withdraw, bg=button_color, activebackground=button_hover_color).pack(pady=5)
-tk.Button(transaction_frame, text="Back to Main Menu", command=show_main_menu, bg=button_color, activebackground=button_hover_color).pack(pady=10)
+tk.Button(transaction_frame, text="Deposit", command=show_deposit, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
+tk.Button(transaction_frame, text="Withdraw", command=show_withdraw, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
+tk.Button(transaction_frame, text="Back to Main Menu", command=show_main_menu, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
 
 # Deposit Frame
-deposit_frame = tk.Frame(root, bg=bg_color)
+deposit_frame = create_frame_with_border(root, bg_color, frame_border_color)
 
-tk.Label(deposit_frame, text="Deposit Amount:", bg=bg_color, fg=label_color).pack()
-deposit_entry = tk.Entry(deposit_frame)
-deposit_entry.pack()
-tk.Button(deposit_frame, text="Confirm Deposit", command=deposit_money, bg=button_color, activebackground=button_hover_color).pack(pady=5)
-tk.Button(deposit_frame, text="Back to Transaction Menu", command=show_transaction, bg=button_color, activebackground=button_hover_color).pack(pady=10)
+tk.Label(deposit_frame, text="Deposit Amount:", bg=bg_color, fg=label_color).pack(pady=10)
+deposit_entry = tk.Entry(deposit_frame, font=("Arial", 12))
+deposit_entry.pack(pady=5)
+tk.Button(deposit_frame, text="Confirm Deposit", command=deposit_money, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
+tk.Button(deposit_frame, text="Back to Transaction Menu", command=show_transaction, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
 
 # Withdraw Frame
-withdraw_frame = tk.Frame(root, bg=bg_color)
+withdraw_frame = create_frame_with_border(root, bg_color, frame_border_color)
 
-tk.Label(withdraw_frame, text="Withdraw Amount:", bg=bg_color, fg=label_color).pack()
-withdraw_entry = tk.Entry(withdraw_frame)
-withdraw_entry.pack()
-tk.Button(withdraw_frame, text="Confirm Withdraw", command=withdraw_money, bg=button_color, activebackground=button_hover_color).pack(pady=5)
-tk.Button(withdraw_frame, text="Back to Transaction Menu", command=show_transaction, bg=button_color, activebackground=button_hover_color).pack(pady=10)
+tk.Label(withdraw_frame, text="Withdraw Amount:", bg=bg_color, fg=label_color).pack(pady=10)
+withdraw_entry = tk.Entry(withdraw_frame, font=("Arial", 12))
+withdraw_entry.pack(pady=5)
+tk.Button(withdraw_frame, text="Confirm Withdraw", command=withdraw_money, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
+tk.Button(withdraw_frame, text="Back to Transaction Menu", command=show_transaction, bg=button_color, activebackground=button_hover_color, relief="raised", width=20).pack(pady=10)
 
 # Start the application
 root.mainloop()
