@@ -80,13 +80,18 @@ Welcome to the **Bank Management System**! This is a Python-based application th
 ## Screenshots 📸
 
 ### Main Menu
-![Main Menu](https://via.placeholder.com/500x300)
+<img width="333" alt="image" src="https://github.com/user-attachments/assets/c72d1853-d630-4fa2-950b-fd7bbaa3b236" />
 
 ### New User Registration
-![New User Registration](https://via.placeholder.com/500x300)
+<img width="227" alt="image" src="https://github.com/user-attachments/assets/e371ff97-41c0-4bc2-a8f4-59a7ea6046ca" />
+
+<img width="187" alt="image" src="https://github.com/user-attachments/assets/7ad34713-cdc5-4339-8564-a935a33f0047" />
+
 
 ### Transactions
-![Transactions](https://via.placeholder.com/500x300)
+<img width="176" alt="image" src="https://github.com/user-attachments/assets/a8781158-5ba0-428b-8314-ffaaf38e1c1b" />
+
+<img width="207" alt="image" src="https://github.com/user-attachments/assets/2fc9f6bd-04b7-4f53-8ed1-8dfe814db5bc" />
 
 ## Troubleshooting 🛠️
 
@@ -95,19 +100,4 @@ Welcome to the **Bank Management System**! This is a Python-based application th
 - Check that the MySQL credentials in the script match your setup.
 - Use Python 3.x to avoid compatibility issues.
 
-## Contributing 🤝
 
-Contributions are welcome! Feel free to fork the repository, make improvements, and submit a pull request.
-
-## License 📄
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Acknowledgments 🌟
-
-- Python and its incredible libraries.
-- The developers of MySQL and Tkinter.
-
----
-
-Feel free to reach out with any questions or feedback! ✉️
